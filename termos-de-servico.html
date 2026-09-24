@@ -3,80 +3,360 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Termos de Serviço — Jeffrey Bot</title>
+  <title>Termos de Serviço — Goose Bot</title>
   <style>
-    body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; max-width: 780px; margin: 0 auto; padding: 24px; color: #cdd6e0; background: #23272a; }
-    h1 { color: #ffffff; border-bottom: 2px solid #5865f2; padding-bottom: 8px; }
-    h2 { color: #8ea1c9; margin-top: 28px; }
-    a { color: #7289da; }
-    code { background: #2c2f33; padding: 2px 6px; border-radius: 4px; }
-    ul { padding-left: 20px; }
-    .muted { color: #8a8f98; font-size: 0.9em; }
-    .box { background: #2c2f33; border: 1px solid #3d414a; border-radius: 8px; padding: 16px; margin: 12px 0; }
+    :root {
+      --ink: #0a0a0a;
+      --ink-soft: #404040;
+      --ink-faint: #8a8a8a;
+      --paper: #ffffff;
+      --paper-alt: #f7f7f5;
+      --line: #e6e6e3;
+      --line-dark: #d0d0cc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .topbar {
+      height: 3px;
+      background: var(--ink);
+    }
+
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 28px 72px;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 48px;
+    }
+
+    .brand { flex-shrink: 0; }
+
+    .brand-mark {
+      width: 92px;
+      height: 92px;
+      border: 1px solid var(--line-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--paper);
+    }
+
+    .kicker {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-weight: 500;
+      font-size: 40px;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+
+    .updated {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      border: 1px solid var(--line-dark);
+      border-radius: 999px;
+      padding: 4px 14px;
+    }
+
+    .lead {
+      margin-top: 22px;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      border-left: 3px solid var(--ink);
+      padding-left: 20px;
+    }
+
+    .lead strong { color: var(--ink); font-weight: 600; }
+
+    /* ---------- Sections ---------- */
+    section {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 0 28px;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .num {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--ink-faint);
+      padding-top: 5px;
+    }
+
+    section h2 {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 23px;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    section p, section li {
+      color: var(--ink-soft);
+      font-size: 15.5px;
+    }
+
+    section ul {
+      list-style: none;
+      margin-top: 4px;
+    }
+
+    section li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 10px;
+    }
+
+    section li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 8px;
+      height: 8px;
+      border: 1.5px solid var(--ink);
+      border-radius: 50%;
+    }
+
+    section code {
+      font-family: "SF Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 13.5px;
+      background: var(--paper-alt);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 1px 6px;
+      color: var(--ink);
+    }
+
+    .note {
+      background: var(--paper-alt);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px 22px;
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      margin-bottom: 8px;
+    }
+
+    .note strong { color: var(--ink); }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: 64px;
+      background: var(--ink);
+      color: #ededed;
+      padding: 36px 0;
+    }
+
+    .foot {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .foot .wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .foot .wordmark svg { display: block; }
+
+    .foot .copy { color: #9a9a9a; }
+
+    @media (max-width: 560px) {
+      header { flex-direction: column; align-items: flex-start; gap: 18px; }
+      .brand-mark { width: 72px; height: 72px; }
+      h1 { font-size: 32px; }
+      section { grid-template-columns: 1fr; gap: 4px; }
+      .num { padding-top: 0; margin-bottom: 4px; }
+      .wrap { padding: 36px 20px 56px; }
+    }
   </style>
 </head>
 <body>
-  <h1>📢 Termos de Serviço</h1>
-  <p class="muted">Última atualização: 24/09/2026</p>
+  <div class="topbar"></div>
 
-  <div class="box">
-    <strong>Jeffrey Bot</strong> — "o Bot" — é um bot para o Discord que oferece funcionalidades de
-    música, moderação, proteção contra convites de outros servidores e divulgação de promoções de jogos.
-    Ao utilizar o Bot, você concorda com estes termos.
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">
+          <svg viewBox="0 0 200 120" width="60" height="36" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="102" cy="82" rx="44" ry="26"/>
+            <path d="M 66 70 C 46 78, 38 50, 43 30 C 45 19, 56 17, 59 24"/>
+            <circle cx="57" cy="16" r="10"/>
+            <circle cx="61" cy="14" r="1.6" fill="#0a0a0a" stroke="none"/>
+            <path d="M 65 13 L 76 9 L 67 18 Z" fill="#0a0a0a" stroke="none"/>
+            <path d="M 145 80 C 156 72, 159 60, 151 56"/>
+            <path d="M 58 106 C 80 102, 102 110, 124 106" stroke-width="1.6"/>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <p class="kicker">Goose Bot · Documento Oficial</p>
+        <h1>Termos de Serviço</h1>
+        <span class="updated">Última atualização · 24/09/2026</span>
+      </div>
+    </header>
+
+    <p class="lead">
+      <strong>Goose Bot</strong> — "o Bot" — é um bot para o Discord que oferece funcionalidades de
+      música, moderação, proteção contra convites de outros servidores e divulgação de promoções de jogos.
+      Ao utilizar o Bot, você concorda com estes termos.
+    </p>
+
+    <section>
+      <div class="num">I.</div>
+      <div>
+        <h2>Aceitação dos termos</h2>
+        <p>
+          Ao adicionar o Bot a um servidor ou utilizar qualquer comando, você aceita estes Termos de Serviço.
+          Caso não concorde, remova o Bot do seu servidor.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="num">II.</div>
+      <div>
+        <h2>Uso permitido</h2>
+        <ul>
+          <li>O Bot deve ser utilizado exclusivamente dentro dos servidores em que foi convidado.</li>
+          <li>Comandos devem ser usados de forma responsável e em conformidade com as regras do servidor e os Termos de Serviço do Discord.</li>
+          <li>É proibido usar o Bot para atividades ilegais, abusivas ou que violem os direitos de terceiros.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="num">III.</div>
+      <div>
+        <h2>Funcionalidades</h2>
+        <ul>
+          <li><strong>Música:</strong> reprodução de áudio em canais de voz (<code>!play</code>, <code>!skip</code>, etc.).</li>
+          <li><strong>Moderação:</strong> ban, kick, mute, limpeza de chat, gerenciamento de cargos e avisos.</li>
+          <li><strong>Anti-convites:</strong> bloqueio automático de convites de outros servidores quando configurado pelos administradores.</li>
+          <li><strong>Promoções:</strong> postagem automática de promoções de jogos.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="num">IV.</div>
+      <div>
+        <h2>Conduta dos usuários</h2>
+        <ul>
+          <li>Você é responsável pelo uso dos comandos dentro do seu servidor.</li>
+          <li>Não tente explorar, interferir ou danificar o funcionamento do Bot.</li>
+          <li>Não revenda, copie ou modifique o Bot sem autorização.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="num">V.</div>
+      <div>
+        <h2>Disponibilidade</h2>
+        <p>
+          O Bot é fornecido "como está", sem garantias de disponibilidade contínua ou ininterrupta.
+          Podem ocorrer indisponibilidades temporárias para manutenção ou atualizações.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="num">VI.</div>
+      <div>
+        <h2>Limitação de responsabilidade</h2>
+        <p>
+          O desenvolvedor não se responsabiliza por perdas, danos ou prejuízos decorrentes do uso do Bot,
+          incluindo (mas não se limitando a) mal funcionamento de comandos, perda de dados de configuração
+          ou interrupção de serviços.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="num">VII.</div>
+      <div>
+        <h2>Alterações destes termos</h2>
+        <p>
+          Estes termos podem ser alterados a qualquer momento. A versão mais recente estará sempre disponível
+          nesta página. O uso contínuo do Bot após alterações implica aceitação dos novos termos.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="num">VIII.</div>
+      <div>
+        <h2>Contato</h2>
+        <p>
+          Dúvidas sobre estes termos podem ser encaminhadas através do servidor oficial de suporte do Bot.
+        </p>
+      </div>
+    </section>
   </div>
 
-  <h2>1. Aceitação dos termos</h2>
-  <p>
-    Ao adicionar o Bot a um servidor ou utilizar qualquer comando, você aceita estes Termos de Serviço.
-    Caso não concorde, remova o Bot do seu servidor.
-  </p>
-
-  <h2>2. Uso permitido</h2>
-  <ul>
-    <li>O Bot deve ser utilizado exclusivamente dentro dos servidores em que foi convidado.</li>
-    <li>Comandos devem ser usados de forma responsável e em conformidade com as regras do servidor e os Termos de Serviço do Discord.</li>
-    <li>É proibido usar o Bot para atividades ilegais, abusivas ou que violem os direitos de terceiros.</li>
-  </ul>
-
-  <h2>3. Funcionalidades</h2>
-  <ul>
-    <li><strong>🎵 Música:</strong> reprodução de áudio em canais de voz (<code>!play</code>, <code>!skip</code>, etc.).</li>
-    <li><strong>🛡️ Moderação:</strong> ban, kick, mute, limpeza de chat, gerenciamento de cargos e avisos.</li>
-    <li><strong>🦆 Anti-Convites:</strong> bloqueio automático de convites de outros servidores quando configurado pelos administradores.</li>
-    <li><strong>📣 Promoções:</strong> postagem automática de promoções de jogos.</li>
-  </ul>
-
-  <h2>4. Conduta dos usuários</h2>
-  <ul>
-    <li>Você é responsável pelo uso dos comandos dentro do seu servidor.</li>
-    <li>Não tente explorar, interferir ou danificar o funcionamento do Bot.</li>
-    <li>Não revenda, copie ou modifique o Bot sem autorização.</li>
-  </ul>
-
-  <h2>5. Disponibilidade</h2>
-  <p>
-    O Bot é fornecido "como está", sem garantias de disponibilidade contínua ou ininterrupta.
-    Podem ocorrer indisponibilidades temporárias para manutenção ou atualizações.
-  </p>
-
-  <h2>6. Limitação de responsabilidade</h2>
-  <p>
-    O desenvolvedor não se responsabiliza por perdas, danos ou prejuízos decorrentes do uso do Bot,
-    incluindo (mas não se limitando a) mal funcionamento de comandos, perda de dados de configuração
-    ou interrupção de serviços.
-  </p>
-
-  <h2>7. Alterações destes termos</h2>
-  <p>
-    Estes termos podem ser alterados a qualquer momento. A versão mais recente estará sempre disponível
-    nesta página. O uso contínuo do Bot após alterações implica aceitação dos novos termos.
-  </p>
-
-  <h2>8. Contato</h2>
-  <p>
-    Dúvidas sobre estes termos podem ser encaminhadas através do servidor oficial de suporte do Bot.
-  </p>
-
-  <p class="muted">© 2026 Jeffrey Bot. Todos os direitos reservados.</p>
+  <footer>
+    <div class="foot">
+      <span class="wordmark">
+        <svg viewBox="0 0 200 120" width="20" height="12" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ededed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="102" cy="82" rx="44" ry="26"/>
+          <path d="M 66 70 C 46 78, 38 50, 43 30 C 45 19, 56 17, 59 24"/>
+          <circle cx="57" cy="16" r="10"/>
+          <path d="M 65 13 L 76 9 L 67 18 Z" fill="#ededed" stroke="none"/>
+        </svg>
+        Goose Bot
+      </span>
+      <span class="copy">© 2026 Goose Bot. Todos os direitos reservados.</span>
+    </div>
+  </footer>
 </body>
 </html>

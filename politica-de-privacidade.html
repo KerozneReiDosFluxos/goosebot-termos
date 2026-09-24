@@ -3,69 +3,346 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Política de Privacidade — Jeffrey Bot</title>
+  <title>Política de Privacidade — Goose Bot</title>
   <style>
-    body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; max-width: 780px; margin: 0 auto; padding: 24px; color: #cdd6e0; background: #23272a; }
-    h1 { color: #ffffff; border-bottom: 2px solid #5865f2; padding-bottom: 8px; }
-    h2 { color: #8ea1c9; margin-top: 28px; }
-    a { color: #7289da; }
-    code { background: #2c2f33; padding: 2px 6px; border-radius: 4px; }
-    ul { padding-left: 20px; }
-    .muted { color: #8a8f98; font-size: 0.9em; }
-    .box { background: #2c2f33; border: 1px solid #3d414a; border-radius: 8px; padding: 16px; margin: 12px 0; }
+    :root {
+      --ink: #0a0a0a;
+      --ink-soft: #404040;
+      --ink-faint: #8a8a8a;
+      --paper: #ffffff;
+      --paper-alt: #f7f7f5;
+      --line: #e6e6e3;
+      --line-dark: #d0d0cc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .topbar {
+      height: 3px;
+      background: var(--ink);
+    }
+
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 28px 72px;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 48px;
+    }
+
+    .brand { flex-shrink: 0; }
+
+    .brand-mark {
+      width: 92px;
+      height: 92px;
+      border: 1px solid var(--line-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--paper);
+    }
+
+    .kicker {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-weight: 500;
+      font-size: 40px;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+
+    .updated {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      border: 1px solid var(--line-dark);
+      border-radius: 999px;
+      padding: 4px 14px;
+    }
+
+    .lead {
+      margin-top: 22px;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      border-left: 3px solid var(--ink);
+      padding-left: 20px;
+    }
+
+    .lead strong { color: var(--ink); font-weight: 600; }
+
+    /* ---------- Sections ---------- */
+    section {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 0 28px;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .num {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--ink-faint);
+      padding-top: 5px;
+    }
+
+    section h2 {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 23px;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    section p, section li {
+      color: var(--ink-soft);
+      font-size: 15.5px;
+    }
+
+    section ul {
+      list-style: none;
+      margin-top: 4px;
+    }
+
+    section li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 10px;
+    }
+
+    section li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 8px;
+      height: 8px;
+      border: 1.5px solid var(--ink);
+      border-radius: 50%;
+    }
+
+    section code {
+      font-family: "SF Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 13.5px;
+      background: var(--paper-alt);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 1px 6px;
+      color: var(--ink);
+    }
+
+    .note {
+      background: var(--paper-alt);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px 22px;
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      margin-bottom: 8px;
+    }
+
+    .note strong { color: var(--ink); }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: 64px;
+      background: var(--ink);
+      color: #ededed;
+      padding: 36px 0;
+    }
+
+    .foot {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .foot .wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .foot .wordmark svg { display: block; }
+
+    .foot .copy { color: #9a9a9a; }
+
+    @media (max-width: 560px) {
+      header { flex-direction: column; align-items: flex-start; gap: 18px; }
+      .brand-mark { width: 72px; height: 72px; }
+      h1 { font-size: 32px; }
+      section { grid-template-columns: 1fr; gap: 4px; }
+      .num { padding-top: 0; margin-bottom: 4px; }
+      .wrap { padding: 36px 20px 56px; }
+    }
   </style>
 </head>
 <body>
-  <h1>🔒 Política de Privacidade</h1>
-  <p class="muted">Última atualização: 24/09/2026</p>
+  <div class="topbar"></div>
 
-  <div class="box">
-    Esta política explica quais dados o <strong>Jeffrey Bot</strong> coleta, como são usados e como você pode solicitar a remoção.
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">
+          <svg viewBox="0 0 200 120" width="60" height="36" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="102" cy="82" rx="44" ry="26"/>
+            <path d="M 66 70 C 46 78, 38 50, 43 30 C 45 19, 56 17, 59 24"/>
+            <circle cx="57" cy="16" r="10"/>
+            <circle cx="61" cy="14" r="1.6" fill="#0a0a0a" stroke="none"/>
+            <path d="M 65 13 L 76 9 L 67 18 Z" fill="#0a0a0a" stroke="none"/>
+            <path d="M 145 80 C 156 72, 159 60, 151 56"/>
+            <path d="M 58 106 C 80 102, 102 110, 124 106" stroke-width="1.6"/>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <p class="kicker">Goose Bot · Documento Oficial</p>
+        <h1>Política de Privacidade</h1>
+        <span class="updated">Última atualização · 24/09/2026</span>
+      </div>
+    </header>
+
+    <p class="lead">
+      Esta política explica quais dados o <strong>Goose Bot</strong> coleta, como são usados
+      e como você pode solicitar a remoção.
+    </p>
+
+    <section>
+      <div class="num">I.</div>
+      <div>
+        <h2>Dados coletados</h2>
+        <p>O Bot coleta apenas os dados mínimos necessários para o funcionamento das funcionalidades:</p>
+        <ul>
+          <li><strong>IDs do Discord:</strong> ID do servidor, de canais e de usuários — necessários para aplicar comandos e configurações.</li>
+          <li><strong>Configurações do servidor:</strong> preferências definidas por administradores (ex.: canais com bloqueio de convites ativo via <code>!blockinvites</code> / <code>!allowinvites</code>).</li>
+          <li><strong>Nenhum conteúdo de mensagens:</strong> mensagens não são armazenadas. O Bot apenas analisa o conteúdo em tempo real para detectar convites, sem retê-lo.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="num">II.</div>
+      <div>
+        <h2>Como os dados são usados</h2>
+        <ul>
+          <li>Para executar comandos solicitados pelos usuários (música, moderação, etc.).</li>
+          <li>Para aplicar a proteção anti-convites configurada pelo servidor.</li>
+          <li>Para garantir a estabilidade do Bot (trava de instância única).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="num">III.</div>
+      <div>
+        <h2>Armazenamento e segurança</h2>
+        <p>
+          As configurações são armazenadas localmente em arquivos <code>JSON</code> na máquina que hospeda o Bot.
+          Não há venda, aluguel ou compartilhamento de dados com terceiros.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="num">IV.</div>
+      <div>
+        <h2>Retenção e exclusão de dados</h2>
+        <ul>
+          <li>Dados de configuração podem ser removidos quando o servidor deixa de usar o Bot.</li>
+          <li>Você pode solicitar a exclusão dos dados relacionados ao seu servidor contactando o desenvolvedor.</li>
+          <li>Os dados não são compartilhados, utilizados para publicidade ou análise externa.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="num">V.</div>
+      <div>
+        <h2>Menores de idade</h2>
+        <p>
+          O Bot não coleta dados pessoais de usuários. O uso do Discord está sujeito aos termos
+          e à idade mínima exigida pelo Discord.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="num">VI.</div>
+      <div>
+        <h2>Alterações desta política</h2>
+        <p>
+          Esta política pode ser atualizada periodicamente. A versão mais recente estará sempre disponível nesta página.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="num">VII.</div>
+      <div>
+        <h2>Contato</h2>
+        <p>
+          Para dúvidas ou solicitações relacionadas a dados, entre em contato através do servidor oficial de suporte do Bot.
+        </p>
+      </div>
+    </section>
   </div>
 
-  <h2>1. Dados coletados</h2>
-  <p>O Bot coleta apenas os dados mínimos necessários para o funcionamento das funcionalidades:</p>
-  <ul>
-    <li><strong>IDs do Discord:</strong> ID do servidor, de canais e de usuários — necessários para aplicar comandos e configurações.</li>
-    <li><strong>Configurações do servidor:</strong> preferências definidas por administradores (ex.: canais com bloqueio de convites ativo via <code>!blockinvites</code>/<code>!allowinvites</code>).</li>
-    <li><strong>Nenhum conteúdo de mensagens:</strong> mensagens não são armazenadas. O Bot apenas analisa o conteúdo em tempo real para detectar convites, sem retê-lo.</li>
-  </ul>
-
-  <h2>2. Como os dados são usados</h2>
-  <ul>
-    <li>Para executar comandos solicitados pelos usuários (música, moderação, etc.).</li>
-    <li>Para aplicar a proteção anti-convites configurada pelo servidor.</li>
-    <li>Para garantir a estabilidade do Bot (trava de instância única).</li>
-  </ul>
-
-  <h2>3. Armazenamento e segurança</h2>
-  <p>
-    As configurações são armazenadas localmente em arquivos <code>JSON</code> na máquina que hospeda o Bot.
-    Não há venda, aluguel ou compartilhamento de dados com terceiros.
-  </p>
-
-  <h2>4. Retenção e exclusão de dados</h2>
-  <ul>
-    <li>Dados de configuração podem ser removidos quando o servidor deixa de usar o Bot.</li>
-    <li>Você pode solicitar a exclusão dos dados relacionados ao seu servidor contactando o desenvolvedor.</li>
-    <li>Os dados não são compartilhados, utilizados para publicidade ou análise externa.</li>
-  </ul>
-
-  <h2>5. Menores de idade</h2>
-  <p>
-    O Bot não coleta dados pessoais de usuários. O uso do Discord está sujeito aos termos e à idade mínima exigida pelo Discord.
-  </p>
-
-  <h2>6. Alterações desta política</h2>
-  <p>
-    Esta política pode ser atualizada periodicamente. A versão mais recente estará sempre disponível nesta página.
-  </p>
-
-  <h2>7. Contato</h2>
-  <p>
-    Para dúvidas ou solicitações relacionadas a dados, entre em contato através do servidor oficial de suporte do Bot.
-  </p>
-
-  <p class="muted">© 2026 Jeffrey Bot. Todos os direitos reservados.</p>
+  <footer>
+    <div class="foot">
+      <span class="wordmark">
+        <svg viewBox="0 0 200 120" width="20" height="12" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ededed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="102" cy="82" rx="44" ry="26"/>
+          <path d="M 66 70 C 46 78, 38 50, 43 30 C 45 19, 56 17, 59 24"/>
+          <circle cx="57" cy="16" r="10"/>
+          <path d="M 65 13 L 76 9 L 67 18 Z" fill="#ededed" stroke="none"/>
+        </svg>
+        Goose Bot
+      </span>
+      <span class="copy">© 2026 Goose Bot. Todos os direitos reservados.</span>
+    </div>
+  </footer>
 </body>
 </html>
